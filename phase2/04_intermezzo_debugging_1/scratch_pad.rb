@@ -1,0 +1,1 @@
+ciper = (unique characters) + (alpabet - key's characters)
