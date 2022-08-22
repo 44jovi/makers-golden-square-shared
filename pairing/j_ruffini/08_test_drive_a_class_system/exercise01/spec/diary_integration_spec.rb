@@ -1,5 +1,8 @@
 # 22-Aug-2022
 # Solo: Jovi
+# Later on:
+# Pair: James, Jovi
+
 
 require 'diary'
 require 'diary_entry'
@@ -44,18 +47,18 @@ RSpec.describe "integration test" do
       expect(diary.reading_time(200)).to eq 6
     end
   end
-
+  
   describe "#find_best_entry_for_reading_time method" do
     it "returns diary entry instance readable within time given" do
       diary = Diary.new
-      diary_entry_1 = DiaryEntry.new("title 1", "one two three")
-      diary_entry_2 = DiaryEntry.new("title 2", "one")
+      diary_entry_1 = DiaryEntry.new("title 1", "one two")
+      diary_entry_2 = DiaryEntry.new("title 1", "one two three")
+      diary_entry_3 = DiaryEntry.new("title 2", "one")
+      diary_entry_4 = DiaryEntry.new("title 3", "one two three four five")
       diary.add(diary_entry_1)
       diary.add(diary_entry_2)
-      expect(diary.find_best_entry_for_reading_time(4, 1)).to eq diary_entry_1
+      diary.add(diary_entry_3)
+      expect(diary.find_best_entry_for_reading_time(4, 1)).to eq diary_entry_2
     end
   end
 end
-
-
-
