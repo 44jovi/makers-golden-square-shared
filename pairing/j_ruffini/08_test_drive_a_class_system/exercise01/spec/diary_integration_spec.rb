@@ -48,9 +48,11 @@ RSpec.describe "integration test" do
   describe "#find_best_entry_for_reading_time method" do
     it "returns diary entry instance readable within time given" do
       diary = Diary.new
-      diary_entry_1 = DiaryEntry.new("title 1", "word " * 200)
+      diary_entry_1 = DiaryEntry.new("title 1", "one two three")
+      diary_entry_2 = DiaryEntry.new("title 2", "one")
       diary.add(diary_entry_1)
-      expect(diary.find_best_entry_for_reading_time(200, 1)).to eq "title 1"
+      diary.add(diary_entry_2)
+      expect(diary.find_best_entry_for_reading_time(4, 1)).to eq diary_entry_1
     end
   end
 end

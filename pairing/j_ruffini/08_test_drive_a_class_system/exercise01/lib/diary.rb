@@ -29,12 +29,17 @@ class Diary
 
   def find_best_entry_for_reading_time(wpm, minutes)
     words_readable = wpm.to_f * minutes # => 200 words
+    @readable_entries = []
     @entries.map do |entry|
-      entry.count_words
-      if entry.count_words <= (wpm.to_f * minutes)
-        return entry.@title
+      if entry.count_words <= words_readable
+        @readable_entries << entry
       end
     end
+    p @readable_entries
+
+    # @readable_entries.map do |entry|
+    #   entry.count_words
+    # end.max_by
         # `wpm` is an integer representing the number of words the user can read
         # per minute.
         # `minutes` is an integer representing the number of minutes the user
@@ -45,13 +50,30 @@ class Diary
   end
 end
 
-# # example of refactoring count_words
-# def count_words
-#   @entries.sum(&:count_words)
-# end
+# # # example of refactoring count_words
 
-# # OR
+# @entries.map do |entry|
+#   entry.count_words
+# end.sum
 
 # def count_words
 #   @entries.map(&:count_words).sum
 # end
+
+# def count_words
+#   @entries.sum(&:count_words)
+# end
+
+# # # example of refactoring count_words
+
+# return @readable_entries.max_by(&:count_words)
+
+# @readable_entries.map do |entry|
+#   entry.count_words
+# end.max_by
+
+
+
+
+
+
