@@ -27,7 +27,7 @@ class Diary
     @entries.each do |entry|
       phone_number_list << entry.list_phone_numbers unless entry.list_phone_numbers.empty?
     end
-    return phone_number_list
+    return phone_number_list.flatten
   end
 end
 

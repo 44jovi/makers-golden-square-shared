@@ -28,7 +28,21 @@ RSpec.describe DiaryEntry do
       diary_entry = DiaryEntry.new("title", "123456789012")
       expect(diary_entry.list_phone_numbers).to eq []
       end
-    end    
+    end
+
+    context "when diary entry contents contains a 11 character word with numbers and letters" do
+      it "returns empty list" do
+      diary_entry = DiaryEntry.new("title", "1a2b3c4d5e6")
+      expect(diary_entry.list_phone_numbers).to eq []
+      end
+    end
+
+    context "when diary entry contents contains 11+ character word starting with 11 numbers" do
+      it "returns empty list" do
+      diary_entry = DiaryEntry.new("title", "12345678901abc")
+      expect(diary_entry.list_phone_numbers).to eq []
+      end
+    end
   end
 end
 

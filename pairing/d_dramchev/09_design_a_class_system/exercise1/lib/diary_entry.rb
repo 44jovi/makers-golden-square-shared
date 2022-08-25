@@ -14,8 +14,9 @@ class DiaryEntry
 
   def list_phone_numbers
     phone_numbers = @contents.split.select do |word|
-      is_all_digits = word.to_i != 0
-      word.length == 11 && is_all_digits
+      if word.length == 11
+        word.to_i.to_s.length == 11
+      end
     end
   end
 end

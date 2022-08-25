@@ -41,6 +41,7 @@ Important elements:
 
 ```
 
+Original diagram:
   ┌────────────────────────────────────┐
   │                                    │
   │  DiaryEntry                        │
@@ -65,7 +66,7 @@ Important elements:
   │  - readable entries          │       |                                   │
   │  - all (diary entries)       │       |                                   │
   │  - task list (view)          │       │                                   │
-  │                              │       │                                   │
+  │                              │       |                                   │
   │                              │       │                                   │
   └──▲───────────────────────────┘       └───────────────────────────────────┘
      │
@@ -81,6 +82,7 @@ Important elements:
   │                              │
   │                              │
   └──────────────────────────────┘
+
 
 ```
 
@@ -193,3 +195,50 @@ _Encode each example as a test. You can add to the above list as you go._
 
 _After each test you write, follow the test-driving process of red, green,
 refactor to implement the behaviour._
+
+
+
+
+# APPENDIX
+
+Diagram of end result
+
+  ┌────────────────────────────────────┐
+  │                                    │
+  │  DiaryEntry                        │
+  │  ----------                        │
+  │                                    │
+  │  - title                           │
+  │  - contents                        │
+  │  - word count (of entry contents)  │
+  │  - list phone numbers              │
+  │                                    │
+  │                                    │
+  └──┬─────────────────────────────────┘
+     │
+     │
+     │
+  ┌──▼───────────────────────────┐
+  │                              │
+  │  Diary                       │
+  │  -----                       │
+  │                              │
+  │  - add                       │
+  │  - readable entries          │
+  │  - list all diary entries    │
+  │  - task list (view)          │
+  │  - list all phone numbers    │
+  │                              │
+  └──▲───────────────────────────┘
+     │
+     │
+     │
+  ┌──┴───────────────────────────┐
+  │                              │
+  │  TaskList                    │
+  │  --------                    │
+  │                              │
+  │  - add task                  │
+  │  - list all tasks            │
+  └──────────────────────────────┘
+
