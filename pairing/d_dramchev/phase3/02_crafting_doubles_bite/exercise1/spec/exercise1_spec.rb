@@ -47,21 +47,23 @@ RSpec.describe "doubles" do
     expect { fake_object.speak("Ron") }.to raise_error RSpec::Mocks::MockExpectationError
   end
 
-  xit "sets up doubles that expect to be called" do
+  it "sets up doubles that expect to be called" do
     fake_object = double :animal
     # Write an expectation below that the method "speak" is called with
     # the argument "Steve"
 
-    # ...
+    expect(fake_object).to receive(:speak).with("Steve")
 
     # Don't edit below
     fake_object.speak("Steve")
   end
 
-  xit "creates a double for a specific case" do
+  it "creates a double for a specific case" do
     fake_diary = double :diary, add: nil
+
     # Set up this double to pass the tests below
-    # ...
+    # passes but a little unsure if we've fulfilled the exercise goal
+    expect(fake_diary).to receive(:count_entries).and_return(2) 
 
     # Don't edit below
     fake_diary.add(double :diary_entry)
@@ -69,3 +71,18 @@ RSpec.describe "doubles" do
     expect(fake_diary.count_entries).to eq 2
   end
 end
+
+# # implemented as a class
+# class Diary
+#   def initialize
+#     @entries = []
+#   end
+    
+#   def add(entry)
+#     @entries << entry
+#   end
+
+#   def count_entries
+#     return @entries.length
+#   end
+# end
